@@ -1,0 +1,82 @@
+2025-04-30 23:45:51,300 - logger - WARNING - Appointment booked for Shivam on Monday at 8PM
+2025-04-30 23:45:51,348 - logger - INFO - Appointment saved via API.
+2025-05-01 01:24:14,773 - logger - WARNING - User's name updated to: Sedney
+2025-05-01 01:24:15,612 - logger - WARNING - User's name updated to: John Doe
+2025-05-01 01:24:15,942 - logger - WARNING - User's name updated to: Emily Johnson
+2025-05-01 01:27:03,866 - logger - WARNING - User's name updated to: Sedney
+2025-05-01 01:43:18,579 - logger - WARNING - User's name updated to: Sedney
+2025-05-01 01:43:21,260 - logger - WARNING - User's name updated to: Not provided
+2025-05-01 01:43:34,137 - logger - WARNING - User's name updated to: Shibu
+2025-05-01 01:43:46,385 - logger - WARNING - Appointment booked for Shibu on reservation_date at reservation_time
+2025-05-01 01:43:46,913 - logger - INFO - Appointment saved via API.
+2025-05-01 01:44:07,182 - logger - WARNING - Appointment booked for Shibu on  at 
+2025-05-01 01:44:07,226 - logger - INFO - Appointment saved via API.
+2025-05-01 01:45:06,918 - logger - WARNING - User's name updated to: Sedney
+2025-05-01 01:45:20,404 - logger - WARNING - User's name updated to: John
+2025-05-01 01:45:32,725 - logger - WARNING - Appointment booked for John on Not provided at Not provided
+2025-05-01 01:45:32,755 - logger - INFO - Appointment saved via API.
+2025-05-01 02:07:53,160 - logger - WARNING - User's name updated to: <customer's name>
+2025-05-01 02:07:57,017 - logger - WARNING - User's name updated to: Deb
+2025-05-01 02:08:04,326 - logger - WARNING - Appointment booked for Deb on  at 
+2025-05-01 02:08:04,350 - logger - INFO - Appointment saved via API.
+2025-05-01 02:08:23,890 - logger - WARNING - User's name updated to: Sedney
+2025-05-01 02:08:35,274 - logger - WARNING - User's name updated to: your name
+2025-05-01 02:08:39,986 - logger - WARNING - User's name updated to: John
+2025-05-01 02:08:46,885 - logger - WARNING - User's name updated to: John
+2025-05-01 02:08:56,838 - logger - INFO - Appointment saved via API.
+2025-05-01 02:10:12,649 - logger - WARNING - User's name updated to: customer_name: Sedney
+2025-05-01 02:10:22,712 - logger - WARNING - Appointment booked for Sedney on  at 
+2025-05-01 02:10:22,754 - logger - INFO - Appointment saved via API.
+2025-05-01 02:10:54,429 - logger - WARNING - User's name updated to: customer_name: Sedney
+2025-05-01 02:11:07,083 - logger - WARNING - Appointment booked for Sedney on  at 
+2025-05-01 02:11:07,105 - logger - INFO - Appointment saved via API.
+2025-05-01 02:11:35,165 - logger - WARNING - User's name updated to: Sedney
+2025-05-01 02:11:53,223 - logger - WARNING - Appointment booked for Sedney on  at 
+2025-05-01 02:11:53,244 - logger - INFO - Appointment saved via API.
+2025-05-01 02:13:01,699 - logger - WARNING - User's name updated to: customer_name
+2025-05-01 02:13:16,255 - logger - WARNING - User's name updated to: Not provided
+2025-05-01 02:13:16,283 - logger - WARNING - Appointment booked for Not provided on Not provided at Not provided
+2025-05-01 02:13:16,299 - logger - INFO - Appointment saved via API.
+2025-05-01 02:13:41,412 - logger - WARNING - Appointment booked for John Doe on  at 
+2025-05-01 02:13:41,446 - logger - INFO - Appointment saved via API.
+2025-05-01 02:13:52,338 - logger - WARNING - User's name updated to: John Doe
+2025-05-01 02:14:08,934 - logger - WARNING - Appointment booked for John Doe on 29 at 8PM
+2025-05-01 02:14:08,968 - logger - INFO - Appointment saved via API.
+2025-05-01 02:14:40,772 - logger - WARNING - User's name updated to: John Doe
+2025-05-01 02:14:41,145 - logger - WARNING - Appointment booked for John Doe on 29 at 8PM
+2025-05-01 02:14:41,168 - logger - INFO - Appointment saved via API.
+2025-05-01 02:15:43,053 - logger - WARNING - User's name updated to: Looks Salon
+2025-05-01 02:15:43,296 - logger - WARNING - Appointment booked for  on  at 
+2025-05-01 02:15:43,320 - logger - ERROR - Failed to save appointment via API: {"customer_name":["This field may not be blank."]}
+2025-05-01 02:16:15,456 - logger - WARNING - User's name updated to: Where I can find mangoes
+2025-05-01 02:22:20,475 - logger - WARNING - User's name updated to: 
+2025-05-01 02:22:33,068 - logger - WARNING - User's name updated to: Shivan
+2025-05-01 02:22:41,902 - logger - WARNING - Appointment booked for Shivan on  at 
+2025-05-01 02:22:41,938 - logger - INFO - Appointment saved via API.
+2025-05-01 02:23:02,647 - logger - WARNING - Appointment booked for Shivan on  at 
+2025-05-01 02:23:02,679 - logger - INFO - Appointment saved via API.
+2025-05-01 02:23:16,009 - logger - WARNING - Appointment booked for Shivan on  at 
+2025-05-01 02:23:16,052 - logger - INFO - Appointment saved via API.
+2025-05-01 02:23:22,893 - logger - WARNING - Appointment booked for Shivan on  at 
+2025-05-01 02:23:22,931 - logger - INFO - Appointment saved via API.
+2025-05-01 02:26:26,537 - logger - WARNING - User's name updated to: dad
+2025-05-01 02:26:50,434 - logger - WARNING - Appointment booked for discounts on  at 
+2025-05-01 02:26:50,464 - logger - INFO - Appointment saved via API.
+2025-05-01 02:27:20,869 - logger - WARNING - User's name updated to: Now
+2025-05-01 02:27:24,208 - logger - WARNING - User's name updated to: Now
+2025-05-01 02:27:41,135 - logger - WARNING - Appointment booked for discounts on  at 
+2025-05-01 02:27:41,175 - logger - INFO - Appointment saved via API.
+2025-05-01 02:28:07,852 - logger - WARNING - User's name updated to: I
+2025-05-01 02:28:19,528 - logger - WARNING - Appointment booked for home on  at 
+2025-05-01 02:28:19,554 - logger - INFO - Appointment saved via API.
+2025-05-01 02:35:04,046 - logger - WARNING - User's name updated to: 
+2025-05-01 02:35:13,501 - logger - WARNING - User's name updated to: 
+2025-05-01 02:35:51,384 - logger - WARNING - User's name updated to: [user name]
+2025-05-01 02:37:14,421 - logger - WARNING - User's name updated to: 
+2025-05-01 02:37:25,072 - logger - WARNING - User's name updated to: 
+2025-05-02 00:08:57,119 - logger - WARNING - User's name updated to: Laksh
+2025-05-02 00:09:21,177 - logger - WARNING - Appointment booked for Laksh on Monday 29th at 8 PM
+2025-05-02 00:09:21,213 - logger - INFO - Appointment saved via API.
+2025-05-02 00:45:14,942 - logger - WARNING - User's name updated to: Shivam
+2025-05-02 00:45:28,397 - logger - WARNING - User's query: How many stylists do you have?
+2025-05-02 00:45:28,434 - logger - INFO - Query saved to database.
