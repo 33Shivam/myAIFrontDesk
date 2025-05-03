@@ -53,7 +53,7 @@ python manage.py migrate
 Open the main HTML UI (update path if needed):
 
 ```bash
-open saloon/templates/index.html
+open ws_test.HTML
 ```
 
 Or open it in any browser manually.
