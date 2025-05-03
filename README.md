@@ -1,7 +1,21 @@
 # 🎙️ myAiFrontDesk – Real-Time Voice Assistant (Assignment Project)
 
 This is an **assignment project** built to simulate a real-time voice assistant using Gemini, Django, WebSockets, and a lightweight in-house knowledge base.
+### 🔐 Environment Variables
 
+Create a `.env` file in your project root with the following keys:
+
+```env
+# Cartesia TTS Service
+CARTESIA_API_KEY=
+
+# LiveKit Realtime Communication
+LIVEKIT_API_KEY=
+LIVEKIT_API_SECRET=
+LIVEKIT_URL=
+
+# Gemini or Google API
+GOOGLE_API_KEY=
 ---
 
 ## ⚙️ Setup Instructions
