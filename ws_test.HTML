@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>WebSocket Listener with Storage & Patch</title>
+</head>
+<body>
+  <h2>📡 Live Customer Query Answer Feed</h2>
+  <div id="output"></div>
+
+  <script>
+    const output = document.getElementById("output");
+    const STORAGE_KEY = "customerQueryMessages";
+
+    // Utility to create message HTML with patch button
+    const createMessageHTML = (msg) => {
+      const container = document.createElement("div");
+      container.style.border = "1px solid #ccc";
+      container.style.padding = "10px";
+      container.style.marginBottom = "10px";
+
+      const content = document.createElement("pre");
+      content.innerText = `📬 Message [${msg.timestamp}]:\n` + JSON.stringify(msg, null, 2);
+
+      const input = document.createElement("input");
+      input.type = "text";
+      input.placeholder = "Edit answer...";
+      input.value = msg.answer || "";
+
+      const btn = document.createElement("button");
+      btn.innerText = "Resolve Query";
+      btn.onclick = () => {
+        console.log(msg);
+        console.log("Sending PATCH for ID:", msg.query_id, "with answer:", input.value);
+        patchAnswer(msg.message.query_id, input.value);
+      };
+
+      container.appendChild(content);
+      container.appendChild(input);
+      container.appendChild(btn);
+
+      return container;
+    };
+
+    // Load messages from localStorage
+    const loadMessages = () => {
+      const saved = localStorage.getItem(STORAGE_KEY);
+      if (saved) {
+        const messages = JSON.parse(saved);
+        messages.forEach(msg => {
+          output.appendChild(createMessageHTML(msg));
+        });
+      }
+    };
+
+    // Save a message to localStorage
+    const saveMessage = (message) => {
+      const saved = localStorage.getItem(STORAGE_KEY);
+      const messages = saved ? JSON.parse(saved) : [];
+
+      if (!message.timestamp) {
+        message.timestamp = new Date().toISOString();
+      }
+
+      messages.push(message);
+      if (messages.length > 50) messages.shift();
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(messages));
+    };
+
+    // PATCH request function
+    const patchAnswer = (id, newAnswer) => {
+      if (!id) {
+        alert("❌ Cannot patch without a valid ID.");
+        return;
+      }
+
+      fetch(`http://127.0.0.1:8000/saloon/queries/${id}/`, {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ answer: newAnswer , was_resolved: true })
+      })
+      .then(res => res.json())
+      .then(data => {
+        alert("✅ Answer updated!");
+        console.log("🔄 PATCH result:", data);
+      })
+      .catch(err => {
+        alert("❌ Error updating: " + err);
+      });
+    };
+
+    // WebSocket connection
+    const socket = new WebSocket("ws://127.0.0.1:8000/ws/queries/");
+
+    socket.onopen = function() {
+      const msg = document.createElement("p");
+      msg.textContent = "✅ WebSocket connected...\n";
+      output.appendChild(msg);
+    };
+
+    socket.onmessage = function(event) {
+      const data = JSON.parse(event.data);
+      console.log("🔍 WebSocket received data:", data);
+
+      data.timestamp = new Date().toISOString();
+
+      output.appendChild(createMessageHTML(data));
+      saveMessage(data);
+    };
+
+    socket.onerror = function(error) {
+      const msg = document.createElement("p");
+      msg.textContent = "❌ Error: " + error.message;
+      output.appendChild(msg);
+    };
+
+    socket.onclose = function() {
+      const msg = document.createElement("p");
+      msg.textContent = "🔌 WebSocket disconnected.";
+      output.appendChild(msg);
+    };
+
+    // Load stored messages when the page loads
+    loadMessages();
+  </script>
+</body>
+</html>

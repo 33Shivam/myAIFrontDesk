@@ -1,0 +1,16 @@
+{% extends "admin/base_site.html" %} {% block extrahead %} {{ block.super }}
+<script>
+  const socket = new WebSocket(
+    "ws://" + window.location.host + "/ws/appointments/"
+  );
+  socket.onmessage = function (event) {
+    const data = JSON.parse(event.data);
+    alert(data.message); // You can replace this with a nicer UI later
+  };
+  const socket2 = new WebSocket("ws://" + window.location.host + "/ws/queries/");
+  socket2.onmessage = function (event) {
+    const data = JSON.parse(event.data);
+    alert("[Query] " + data.message);
+  };
+</script>
+{% endblock %}
