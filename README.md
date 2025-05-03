@@ -4,6 +4,62 @@ This is an **assignment project** built to simulate a real-time voice assistant 
 
 ---
 
+## ⚙️ Setup Instructions
+
+### 1. Activate Python Environment
+
+```bash
+source myenv/bin/activate
+```
+
+### 2. Install Dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+---
+
+## 🧠 Run the AI Agent
+
+From the root directory:
+
+```bash
+python saloon/agent/main.py
+```
+
+This launches the AI assistant logic that connects via WebSocket to the Django backend.
+
+---
+
+## 🛠️ Run the Django Backend
+
+Use Daphne to serve ASGI (WebSocket + HTTP):
+
+```bash
+daphne -p 8000 djangoBackend.asgi:application
+```
+
+Make sure to run migrations first if needed:
+
+```bash
+python manage.py migrate
+```
+
+---
+
+## 🌐 Open the Frontend
+
+Open the main HTML UI (update path if needed):
+
+```bash
+open saloon/templates/index.html
+```
+
+Or open it in any browser manually.
+
+---
+
 ##  Model Selection & Livekit
 
 We started by **LiveKit model installation**. We chose multiple LLMs before ending up on the **Realtime model provided by Gemini**, which suited our case.  
