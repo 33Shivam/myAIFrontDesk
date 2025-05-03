@@ -4,7 +4,7 @@ This is an **assignment project** built to simulate a real-time voice assistant 
 
 ---
 
-## 🧪 System Design & Model Selection
+##  Model Selection & Livekit
 
 We started by **LiveKit model installation**. We chose multiple LLMs before ending up on the **Realtime model provided by Gemini**, which suited our case.  
 
