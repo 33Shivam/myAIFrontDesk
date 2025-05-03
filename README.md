@@ -50,44 +50,58 @@ There are currently three models/tables we are concerned with:
 ---
 
 ## 🗂️ Project Structure
-├── appointmentHandler/                  # Another Django app
-│   └── ...
-│
-├── djangoBackend/                       # Django project root Contains Settings , WSGI ASGI etc
-│   └── ...
-│
-├── myenv/                               # Virtual environment 
-│   └── ...
-│
-├── saloon/                              # salon backend
-│   ├── __init__.py
-│   ├── admin.py                         # Django admin registration
-│   ├── apps.py                          # App configuration
-│   ├── consumer.py                      # WebSocket consumer (Django Channels)
-│   ├── models.py                        # Django models (e.g., CustomerQuery, KnowledgeBase): Tables schema 
-│   ├── routing.py                       # ASGI routing for WebSocket: endpoints for websocket connection
-│   ├── serializers.py                   # Django REST Framework serializers converting data to proper format(JSON) for REST 
-│   ├── signals.py                       # Django signals usage example: after marking query resolved saving it to  in knowledge base 
-│   ├── tests.py                         # Django test cases
-│   ├── urls.py                          # App-level URL routing also creating API urls
-│   ├── views.py                         # API views logic of API 
-│   ├── templates/                       # HTML templates for admin or frontend
-│   ├── agent/                           # Core AI assistant logic
-│   │   ├── __pycache__/                 # Auto generated
-│   │   ├── greeter_model/              # Assistant-specific LLM interaction
-│   │   │   └── models.py               # Custom (non-Django) models for greeter logic
-│   │   ├── .env                        # Environment variables for the agent
-│   │   ├── agent.py                    # Base agent class : We have only one agent. Incase of multiple agents segregate into multiple folder 
-│   │   ├── api.py                      # Calls Django knowledge base API
-│   │   ├── config.py                   # Agent configuration (URLs, keys)
-│   │   ├── main.py                     # Entrypoint for running the agent
-│   │   ├── models.py                   # Custom internal models for agent usage
-│   │   ├── prompts.py                  # Predefined prompt templates for LLM
-│   │   ├── salon_agent.log             # Logs generated during agent runtime
-│   │   ├── tools.py                    # functions for agent to call
-│   │   └── webSocketConnection.py      # WebSocket bridge for async Django ↔ Agent
-│
-├── .env                                 # Global environment config (Django)
-├── db.sqlite3                           # Local development database
-├── manage.py                            # Django CLI manager
-├── requirements.txt                     # Python dependencies
+
+```
+AIFRONT/
+├── appointmentHandler/              # Django app for appointment handling
+├── djangoBackend/                   # Project-level configs (settings, ASGI, etc.)
+├── myenv/                           # Python virtual environment
+├── saloon/                          # Main salon assistant backend
+│   ├── admin.py                     # Admin interface
+│   ├── consumer.py                  # WebSocket consumer
+│   ├── models.py                    # Models: Customer, Query, KnowledgeBase
+│   ├── routing.py                   # WebSocket routing
+│   ├── serializers.py               # API serialization
+│   ├── signals.py                   # Auto logic on model save
+│   ├── urls.py                      # API endpoints
+│   ├── views.py                     # API logic
+│   ├── templates/                   # HTML templates
+│   └── agent/                       # Core AI Assistant logic
+│       ├── greeter_model/           # Greeter-specific logic
+│       │   └── models.py
+│       ├── .env                     # Local env for agent module
+│       ├── agent.py                 # Base agent class
+│       ├── api.py                   # API utilities
+│       ├── config.py                # Agent settings
+│       ├── main.py                  # Entrypoint
+│       ├── models.py                # Internal models
+│       ├── prompts.py               # Prompt templates
+│       ├── salon_agent.log
+│       ├── tools.py                 # Helper functions
+│       └── webSocketConnection.py   # WebSocket link to Django
+├── .env                             # Global env vars
+├── db.sqlite3                       # SQLite DB for local
+├── manage.py                        # Django manager
+└── requirements.txt                 # Dependencies
+```
+
+
+---
+
+## ✅ Project Covers the Requirements of the Assignment
+
+- Every question or query that model sends for human intervention has a **lifecycle**:
+  - Initial State: `Pending`
+  - After a timeout: `Unresolved`
+  - If resolved by supervisor: marked as `Resolved`
+  
+- Clear link between the **question unresolved** and **agent calling back** to customer  
+- **Immediately once supervisor responds**, it is:
+  - Stored in DB
+  - Used to **train/improve model** for future sessions
+
+- Very **basic page** where **pending requests are shown via WebSocket in realtime**
+
+---
+
+
