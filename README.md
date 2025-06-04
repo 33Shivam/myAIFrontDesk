@@ -1,6 +1,10 @@
-# 🎙️ myAiFrontDesk – Real-Time Voice Assistant (Assignment Project)
+# 🎙️ myAiFrontDesk – Real-Time Voice Assistant 
 
-This is an **assignment project** built to simulate a real-time voice assistant using Gemini, Django, WebSockets, and a lightweight in-house knowledge base.
+# Demo
+
+[![Watch the video](https://img.youtube.com/vi/lg8gasm7ReY/0.jpg)](https://www.youtube.com/watch?v=lg8gasm7ReY)
+
+This is  **project** built to simulate a real-time voice assistant using Gemini, Django, WebSockets, and a lightweight in-house knowledge base.
 ### 🔐 Environment Variables
 
 Create a `.env` file in your ./saloon/agents with the following keys:
@@ -161,7 +165,7 @@ AIFRONT/
 
 ---
 
-## ✅ Project Covers the Requirements of the Assignment
+## ✅ Project Covers the following
 
 - Every question or query that model sends for human intervention has a **lifecycle**:
   - Initial State: `Pending`
